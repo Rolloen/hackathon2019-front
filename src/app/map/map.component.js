@@ -8,17 +8,18 @@
   });
 
   /** @ngInject */
-  function MapController($log, $rootScope, $window, $translate, SAMPLE_CONSTANT) {
+  function MapController($log, $rootScope, $scope, $window, $translate) {
     const vm = this;
 
-    vm.showSampleConstant = showSampleConstant;
     vm.switchLanguage = switchLanguage;
+    vm.selectedRegion = {};
 
     activate();
 
     function activate() {
       var width = 1000,
-        height = 1000;
+        height = 1000,
+        centered;
 
       var path = $window.d3.geoPath();
 
@@ -46,17 +47,27 @@
           .on("click", departClicked);
 
       });
-    }
 
-    function departClicked(d) {
-      console.log(d);
-      
-    }
+      function departClicked(d) {
+        if (d && centered !== d) {
+          centered = d;
+          vm.selectedRegion = d.properties;
 
-    function showSampleConstant() {
-      alert(SAMPLE_CONSTANT);
-    }
+        } else {
+          centered = null;
+          vm.selectedRegion = {};
 
+        }
+
+        deps.selectAll("path")
+          .classed("selected", centered && function (d) {
+            return d === centered;
+          });
+
+        $scope.$apply(vm.selectedRegion);
+        
+      }
+    }
 
     function switchLanguage(language) {
       $translate.use(language);
