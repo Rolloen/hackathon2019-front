@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html ng-app="app">
-<head>
-    <base href="/">
-    <meta charset="utf-8">
-    <title>Angular Gulp Boilerplate</title>
 
-    <!-- build:css(src) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- Bower dependencies styles will go here after Gulp `inject` task. -->
-    <!-- endbower -->
-    <!-- endbuild -->
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <title>Angular Gulp Boilerplate</title>
 
-    <!-- build:css(.tmp/serve) styles/app.css -->
-    <!-- inject:css -->
-    <!-- Output styles will go here after Gulp `inject` task. -->
-    <!-- endinject -->
-    <!-- endbuild -->
+        <!-- build:css(src) styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- Bower dependencies styles will go here after Gulp `inject` task. -->
+        <!-- endbower -->
+        <!-- endbuild -->
 
-</head>
-<body>
+        <!-- build:css(.tmp/serve) styles/app.css -->
+        <!-- inject:css -->
+        <!-- Output styles will go here after Gulp `inject` task. -->
+        <!-- endinject -->
+        <!-- endbuild -->
 
-<div ui-view=""></div>
+    </head>
 
-<!-- build:js(src) scripts/vendor.js -->
-<!-- bower:js -->
-<!-- Bower dependencies scripts will go here after Gulp `inject` task. -->
-<!-- endbower -->
-<!-- endbuild -->
+    <body>
 
-<!-- build:js({.tmp/partials,.tmp/serve}) scripts/app.js -->
+        <div ui-view=""></div>
 
-<!-- inject:js -->
-<!-- Scripts will go here after Gulp `inject` task. -->
-<!-- endinject -->
+        <!-- build:js(src) scripts/vendor.js -->
+        <!-- bower:js -->
+        <!-- Bower dependencies scripts will go here after Gulp `inject` task. -->
+        <!-- endbower -->
+        <!-- endbuild -->
 
-<!-- inject:partials -->
-<!-- Angular templates will be converted to scripts and go here after Gulp `build` task. -->
-<!-- endinject -->
+        <!-- build:js({.tmp/partials,.tmp/serve}) scripts/app.js -->
 
-<!-- endbuild -->
+        <!-- inject:js -->
+        <!-- Scripts will go here after Gulp `inject` task. -->
+        <!-- endinject -->
 
-</body>
+        <!-- inject:partials -->
+        <!-- Angular templates will be converted to scripts and go here after Gulp `build` task. -->
+        <!-- endinject -->
+
+        <!-- endbuild -->
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="//d3js.org/topojson.v1.min.js"></script>
+
+    </body>
+
 </html>

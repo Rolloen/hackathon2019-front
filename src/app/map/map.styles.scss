@@ -1,0 +1,20 @@
+map {
+  display: block;
+  text-align: center;
+
+  .departement {
+    &:hover {
+      fill: orange;
+    }
+
+    &.selected {
+      fill : orange;
+    }
+  }
+
+  #svg {
+    float: left;
+  }
+
+
+}
