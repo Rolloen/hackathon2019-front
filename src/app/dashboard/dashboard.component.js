@@ -13,10 +13,12 @@
 
     vm.switchLanguage = switchLanguage;
     vm.selectedRegion = {};
+    vm.stats = {};
 
     activate();
 
     function activate() {
+      initStats();
       var width = 1000,
         height = 1000,
         centered;
@@ -53,7 +55,6 @@
         if (d && centered !== d) {
           centered = d;
           vm.selectedRegion = d.properties;
-          selectRegion();
         } else {
           centered = null;
           vm.selectedRegion = {};
@@ -70,14 +71,15 @@
       }
 
     }
-    function selectRegion() {
+    function initStats() {
       webservices.getNationalStats()
         .then(function(data){
           console.log(data);
+          vm.stats = data;
+          // $scope.$apply(vm.stats);
           
         }, function (err) {
-          console.log(err);
-          
+            $log.error(err);          
         });
     }
 

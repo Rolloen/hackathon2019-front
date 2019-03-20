@@ -5,7 +5,8 @@
     controller: StatsController,
     controllerAs: 'vm',
     bindings: {
-      region: '='
+      region: '=',
+      stats : '='
     },
     templateUrl: 'app/stats/stats.view.html',
   });

@@ -29,7 +29,8 @@
             </h3>
 
             <div class="text">
-                24000 interactions
+                {{ vm.stats.moyenne_social_score | number : 0}} interactions 
+                <span title="Score de partage des articles concernants les accidents"><i class="fas fa-question-circle"></i></span>
             </div>
         </div>
     </div>
@@ -62,7 +63,7 @@
             </h3>
             <div class="text">
                 <div class="total-accidents">
-                    <span> 89 </span> 
+                    <span> {{vm.stats.nombre_accident}} </span>
                     <span>accidents motorisé</span>
                 </div>
 

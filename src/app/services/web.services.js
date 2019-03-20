@@ -7,12 +7,14 @@
         .factory('webservices', WebService);
 
     WebService.$inject = [
-        '$http'
+        '$http',
+        '$log'
     ];
 
     /** @ngInject */
     function WebService(
-        $http
+        $http,
+        $log
     ) {
 
         function Service() {}
@@ -25,26 +27,29 @@
 
         function getNationalStats() {
 
-            var url = 'localhost:8080/article/stats-nationales';
+            var url = 'http://localhost:8080/article/stats-nationales';
 
             return $http.get(url, {
                 params: {
                     'dateDebut' : '2018-01-03',
                     'dateFin' : '2019-01-03'
                 },
-                responseType : "json"
+                headers: {
+                    // 'Accept': 'text/html, application/json, application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                    // 'Access-Control-Allow-Origin' : "*",
+                    'Content-Type': 'application/json'
+                }
             })
                 .then(getNationalStatsComplete)
                 .catch(getNationalStatsFailed);
 
             function getNationalStatsComplete(response) {
-                console.log(response);
-                
+                return response.data;
                 // UsersStorageService.setUser(response.data);
             }
 
             function getNationalStatsFailed() {
-                //$log.debug('XHR Failed for sendBetFailed.' + error.data);
+                $log.debug('XHR Failed for getNationalStats.' + error.data);
             }
         }
     }
