@@ -15,9 +15,9 @@
       component: 'profile',
     });
 
-    $stateProvider.state('map', {
-      url: '/map',
-      component: 'map',
+    $stateProvider.state('dashboard', {
+      url: '/dashboard',
+      component: 'dashboardPage',
     });
 
     $urlRouterProvider.otherwise('/');

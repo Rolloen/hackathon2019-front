@@ -1,14 +1,14 @@
 (function () {
   'use strict';
 
-  angular.module('app').component('map', {
-    controller: MapController,
+  angular.module('app').component('dashboardPage', {
+    controller: DashboardController,
     controllerAs: 'vm',
-    templateUrl: 'app/map/map.view.html',
+    templateUrl: 'app/dashboard/dashboard.view.html',
   });
 
   /** @ngInject */
-  function MapController($log, $rootScope, $scope, $window, $translate) {
+  function DashboardController($log, $rootScope, $scope, $window, $translate, webservices) {
     const vm = this;
 
     vm.switchLanguage = switchLanguage;
@@ -45,6 +45,7 @@
           .attr("d", path)
           .attr('class', 'departement')
           .on("click", departClicked);
+          // .on("mouseover", handleHover);
 
       });
 
@@ -52,7 +53,7 @@
         if (d && centered !== d) {
           centered = d;
           vm.selectedRegion = d.properties;
-
+          selectRegion();
         } else {
           centered = null;
           vm.selectedRegion = {};
@@ -67,6 +68,17 @@
         $scope.$apply(vm.selectedRegion);
         
       }
+
+    }
+    function selectRegion() {
+      webservices.getNationalStats()
+        .then(function(data){
+          console.log(data);
+          
+        }, function (err) {
+          console.log(err);
+          
+        });
     }
 
     function switchLanguage(language) {

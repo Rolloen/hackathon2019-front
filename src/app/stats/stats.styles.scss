@@ -1,4 +1,84 @@
-profile {
-  display: block;
-  text-align: center;
+
+stats {
+
+  margin-top: 50px;
+  margin-left: 25px;
+  display: inline-block;
+  vertical-align: top;
+
+  
+  .stats-container {
+    .card {
+      padding: 10px 8px 10px 8px;
+
+      margin-bottom: 15px;
+      background-color: #F4F4F4;
+      h3 {
+        color: black;
+        .title {
+          margin-left: 5px;
+          display: inline-block;
+          position: relative;
+          span {
+            position: relative;
+            z-index: 2;
+          }
+          .underbar {
+            width: 95%;
+            height: 15px;
+            bottom: 0px;
+            left: 15px;
+            position: absolute;
+            background-color: #C6C6C6;
+            opacity: 0.6;
+            z-index: 1;
+        }
+        }
+      }
+      .text {
+        padding-left: 20px;
+        font-size: 1.5em;
+        color: #FF954D;
+      }
+    }
+
+    .date-card {
+      margin-right: 10px;
+    }
+
+    .position-card {
+      width: 100%;
+    }
+
+    .stats-card {
+      width: 100%;
+
+      .text {
+        h6 {
+          margin-left: 10px;
+        }
+        .total-accidents {
+          span {
+            &:nth-of-type(1) {
+              font-size: 2.8em;
+            }
+            &::nth-of-type(2) {
+              font-size: 0.8em;
+            }
+          }
+        }
+        .deadly-accidents {
+          span {
+            &:nth-of-type(1) {
+              font-size: 1.8em;
+            }
+            &::nth-of-type(2) {
+              font-size: 0.6em;
+            }
+          }
+        }
+
+      }
+    }
+  }
 }

@@ -1,6 +1,82 @@
 
-<div class="stats-container">
-    <h1>Région : {{ vm.region.nom }}</h1>
+<div class="stats-container container">
+    <!-- <h3>Région : {{ vm.region.nom }}</h3> -->
+
+    <div class="row">
+        <div class="card date-card col-xs-6">
+            <h3>
+                <i class="far fa-calendar-alt"></i>
+                <div class="title">
+                    <span>Date </span>
+                    <span class="underbar"></span>
+                </div>
+                <!-- <span class="underbar"></span> -->
+            </h3>
+
+            <div class="text">
+                20/03/2019 au 18/04/2019
+            </div>    
+        </div>
+        <div class="card social-card col-xs-6">
+            <h3>
+                <i class="far fa-star"></i>
+                <div class="title">
+                    <span>Popularité moyenne</span>
+                    <span class="underbar"></span>
+                </div>
+                
+
+            </h3>
+
+            <div class="text">
+                24000 interactions
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card position-card col-xs-12">
+            <h3>
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="title">
+                    <span>Zone Géographique</span>
+                    <span class="underbar"></span>
+                </div>
+            </h3>
+
+            <div class="text">
+                <span ng-if="vm.region.nom"> {{ vm.region.nom }}</span>
+                <span ng-if="!vm.region.nom">France</span>
+            </div>    
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card stats-card col-xs-12">
+            <h3>
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="title">
+                    <span>Statistiques</span>
+                    <span class="underbar"></span>
+                </div>
+            </h3>
+            <div class="text">
+                <div class="total-accidents">
+                    <span> 89 </span> 
+                    <span>accidents motorisé</span>
+                </div>
+
+                <h6>dont</h6>
+                <div class="deadly-accidents">
+                    <span> 15 </span> 
+                    <span>accidents graves</span>
+                </div>
+            </div>
+            <!-- <div class="text graphique">
+
+            </div>     -->
+        </div>
+    </div>
 </div>
 
 

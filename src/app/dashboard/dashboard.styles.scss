@@ -1,8 +1,9 @@
-map {
-  display: block;
-  text-align: center;
-
+dashboard-page {
+  #map {
+    display: inline-block;
+  }
   .departement {
+    fill: grey;
     &:hover {
       fill: orange;
     }
@@ -11,10 +12,4 @@ map {
       fill : orange;
     }
   }
-
-  #svg {
-    float: left;
-  }
-
-
 }
