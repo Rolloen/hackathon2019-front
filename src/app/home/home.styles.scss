@@ -4,6 +4,21 @@
   background-image: url("app/assets/images/topPage-bg.png");
   background-repeat: no-repeat;
 
+  .dashboard-btn {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    button {
+      padding: 10px 8px;
+      font-size: 1.2em;
+      color: #FF954D;
+      background-color: white;
+      border: 1px solid #FF332F;
+      border-radius: 5px; 
+      outline: none;
+    }
+  }
+
   .top-page {
     height: 760px;
     text-align: center;

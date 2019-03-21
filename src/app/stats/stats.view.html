@@ -60,8 +60,15 @@
             </h3>
             <div class="text">
                 <div class="total-accidents">
-                    <span ng-if="vm.stats.nombre_accident"> {{vm.stats.nombre_accident}} </span>
-                    <span ng-if="!vm.stats.nombre_accident"> - </span>
+                    <span ng-if="vm.displayedStats === 'all'">
+                        <span ng-if="vm.stats.nombre_accident"> {{vm.stats.nombre_accident}} </span>
+                        <span ng-if="!vm.stats.nombre_accident"> - </span>
+                    </span>
+
+                    <span ng-if="vm.displayedStats !== 'all'">
+                        <span ng-if="vm.accidentsDisplayed"> {{vm.accidentsDisplayed}} </span>
+                        <span ng-if="!vm.accidentsDisplayed"> - </span>
+                    </span>
 
                     <span>accidents médiatisés</span>
                 </div>
@@ -74,6 +81,20 @@
                 </div>
             </div>
 
+            <div class="filter-container">
+                <div class="filter train" ng-click="vm.changeDisplayedStats('train')">
+                    <i class="fas fa-train"></i>
+                </div>
+                <div class="filter car" ng-click="vm.changeDisplayedStats('voiture')">
+                    <i class="fas fa-car-alt"></i> 
+                </div>
+                <div class="filter airplane" ng-click="vm.changeDisplayedStats('avion')">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div class="filter bike" ng-click="vm.changeDisplayedStats('moto')">
+                    <i class="fas fa-motorcycle"></i>
+                </div>
+            </div>
         </div>
     </div>
 

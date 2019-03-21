@@ -16,6 +16,9 @@
   function StatsController($log, $window, webservices) {
     const vm = this;
 
+    vm.changeDisplayedStats = changeDisplayedStats;
+    vm.displayedStats = 'all';
+    vm.accidentsDisplayed = 0;
     
     init();
 
@@ -75,6 +78,29 @@
             $log.error(err);
         });
     }
+
+    function changeDisplayedStats(type) {
+      console.log(vm.stats);
+      if (type === 'all') {
+        vm.displayedStats = type;
+      } else if (vm.displayedStats === 'all') {
+        vm.displayedStats = [];
+        vm.displayedStats.push(type);
+      } else if (Array.isArray(vm.displayedStats) && !vm.displayedStats.includes(type)) {
+        vm.displayedStats.push(type);
+      }
+
+      calculateDisplayedAccidents();
+    }
+
+    function calculateDisplayedAccidents() {
+      if (vm.displayedStats !== 'all') {
+        for (var type of vm.displayedStats) {
+          vm.accidentsDisplayed += vm.stats[type];
+        }
+      }
+    }
+
   }
 
 })();
