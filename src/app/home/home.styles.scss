@@ -1,4 +1,152 @@
-profile {
-  display: block;
-  text-align: center;
+.home-container {
+  height: 50%;
+  width: 100%;
+  background-image: url("app/assets/images/topPage-bg.png");
+  background-repeat: no-repeat;
+
+  .top-page {
+    height: 760px;
+    text-align: center;
+    position: relative;
+
+
+    img {
+      width: 300px;
+      margin-top: 74px;
+    }
+
+    .sub-text {
+      width: 100%;
+      bottom: 135px;
+      color: white;
+      position: absolute;
+
+      h4 {
+        font-weight: 300;
+      }
+
+      .button {
+        margin-top: 70px;
+        padding: 5px 20px;
+        display: inline-block;
+        font-size: 1.2em;
+        font-weight: 700;
+        background-color: white;
+
+        a {
+          color: #FF954D;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .second-section {
+    padding: 0 20px;
+
+    h2 {
+      text-align: left;
+      color: #FF954D;
+    }
+
+    .desc {
+      margin-top: 15px;
+      padding: 0 20px;
+
+      img {
+        width: 45%;
+      }
+
+      .text {
+
+        float: right;
+        width: 50%;
+        word-break: break-word;
+        font-size: 1.8em;
+
+        span {
+          &:nth-of-type(2) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .third-section {
+    margin-top: 100px;
+    padding: 0 20px;
+    position: relative;
+    text-align: center;
+
+    h2 {
+      position: relative;
+      z-index: 2;
+    }
+
+    .icons-container {
+      margin-top: 30px;
+      display: flex;
+      position: relative;
+      justify-content: space-around;
+      text-align: center;
+      z-index: 2;
+
+      .icon {
+        flex: 1;
+
+        img {
+          height: 200px;
+        }
+
+        p {
+          width: 80%;
+          font-weight: 700;
+          margin: auto;
+        }
+      }
+    }
+
+    .background-img {
+      width: 120%;
+      height: 400px;
+      left: -36px;
+      top: -40px;
+      position: absolute;
+      background-color: #EAEAEA;
+      z-index: 1;
+      transform: rotate(-3deg);
+    }
+
+    .side-overlay {
+      width: 200px;
+      height: 1000px;
+      top: -120px;
+      position: absolute;
+      background-color: white;
+      z-index: 3;
+      &.left {
+          left: -210px;
+      }
+      &.right {
+          right: -210px;
+      }
+    }
+  }
+
+  .fourth-section {
+    .picto-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .picto {
+        text-align: center;
+        img {
+          height: 200px;
+        }
+      }
+    }
+  }
+
 }

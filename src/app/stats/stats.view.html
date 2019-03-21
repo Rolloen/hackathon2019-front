@@ -63,7 +63,9 @@
             </h3>
             <div class="text">
                 <div class="total-accidents">
-                    <span> {{vm.stats.nombre_accident}} </span>
+                    <span ng-if="vm.stats.nombre_accident"> {{vm.stats.nombre_accident}} </span>
+                    <span ng-if="!vm.stats.nombre_accident"> - </span>
+
                     <span>accidents motorisé</span>
                 </div>
 
@@ -76,6 +78,23 @@
             <!-- <div class="text graphique">
 
             </div>     -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card graph-card col-xs-12">
+            <h3>
+                <i class="fas fa-chart-bar"></i>
+                <div class="title">
+                    <span>Bilan</span>
+                    <span class="underbar"></span>
+                </div>
+            </h3>
+
+            <div class="text graphique">
+
+            </div>
+                
         </div>
     </div>
 </div>

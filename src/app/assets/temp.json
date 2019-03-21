@@ -1,0 +1,26 @@
+[{
+        "mois": "janvier",
+        "accidentsVoiture": 12,
+        "accidentsMoto": 23
+    },
+    {
+        "mois": "fevrier",
+        "accidentsVoiture": 10,
+        "accidentsMoto": 3
+    },
+    {
+        "mois": "mars",
+        "accidentsVoiture": 32,
+        "accidentsMoto": 5
+    },
+    {
+        "mois": "avril",
+        "accidentsVoiture": 31,
+        "accidentsMoto": 25
+    },
+    {
+        "mois": "mai",
+        "accidentsVoiture": 1,
+        "accidentsMoto": 5
+    }
+]

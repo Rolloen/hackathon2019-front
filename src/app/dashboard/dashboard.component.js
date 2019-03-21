@@ -74,7 +74,6 @@
     function initStats() {
       webservices.getNationalStats()
         .then(function(data){
-          console.log(data);
           vm.stats = data;
           // $scope.$apply(vm.stats);
           
