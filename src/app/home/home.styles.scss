@@ -135,6 +135,8 @@
   }
 
   .fourth-section {
+    margin-top: 80px;
+    text-align: center;
     .picto-container {
       display: flex;
       flex-direction: column;
@@ -142,11 +144,97 @@
 
       .picto {
         text-align: center;
+        position: relative;
+        .number {
+          padding: 0px 13px;
+          display: inline-block;
+          position: absolute;
+          font-size: 2em;
+          background-color: #FF954D;
+          span {
+            color: white;
+          }
+        }
+
         img {
           height: 200px;
+        }
+
+        .text {
+          .title {
+            margin-bottom: 10px;
+            font-weight: 700;
+          }
+        }
+
+        .my-vr {
+          width: 4px;
+          height: 90px;
+          background-color: #C6C6C6;
+          text-align: center;
+          margin: auto;
         }
       }
     }
   }
 
+  .last-section {
+    height: 500px;
+    margin-top: 50px;
+    text-align: center;
+    .form-container {
+      height: 100%;
+      position: relative;
+      background-image: url('app/assets/images/contact-bg.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      form {
+        position: absolute;
+        top: 130px;
+        right: 260px;
+        input {
+          height: 30px;
+          padding-left: 5px;
+          border: none;
+        }
+      }
+      label {
+        margin: 0;
+        display: block;
+        font-weight: 700;
+        text-align: left;
+      }
+
+      .firstname , .lastname {
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      .firstname {
+        margin-right: 10px;
+
+      }
+
+      .mail {
+        margin-bottom: 20px;
+        input {
+          width: 100%;
+        }
+      }
+
+      .phone {
+        margin-bottom: 30px;
+        text-align: left;
+      }
+      .submitContact {
+        width: 100%;
+        padding: 2px 0;
+        font-weight: 500;
+        font-size: 1.3em;
+        color: white;
+        background-color: #FF954D;
+      }
+    }
+  }
 }
