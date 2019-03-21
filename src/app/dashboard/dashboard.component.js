@@ -75,6 +75,7 @@
           
         $scope.$apply(vm.selectedRegion);
         initStats();
+        $scope.$broadcast('DATE_CHANGED', vm.limitDate);
       }
 
     }
