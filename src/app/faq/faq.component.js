@@ -8,7 +8,7 @@
   });
 
   /** @ngInject */
-  function FaqController($log, $rootScope, $scope, $window, $translate, webservices) {
+  function FaqController() {
 
   }
 

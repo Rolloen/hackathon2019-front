@@ -8,7 +8,7 @@
   });
 
   /** @ngInject */
-  function DashboardController($log, $rootScope, $scope, $window, $translate, webservices, moment) {
+  function DashboardController($log, $scope, $window, webservices, moment) {
     const vm = this;
 
     vm.changeSelectedDate = changeSelectedDate;

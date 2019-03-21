@@ -8,7 +8,7 @@
   });
 
   /** @ngInject */
-  function AboutController($log, $rootScope, $scope, $window, $translate, webservices) {
+  function AboutController() {
 
   }
 

@@ -8,7 +8,7 @@
   });
 
   /** @ngInject */
-  function LegalController($log, $rootScope, $scope, $window, $translate, webservices) {
+  function LegalController() {
 
   }
 

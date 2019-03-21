@@ -8,7 +8,7 @@
   });
 
   /** @ngInject */
-  function PrivateController($log, $rootScope, $scope, $window, $translate, webservices) {
+  function PrivateController() {
 
   }
 
