@@ -6,8 +6,7 @@
     controllerAs: 'vm',
     bindings: {
       region: '=',
-      stats : '=',
-      dateLimit : '='
+      stats : '='
     },
     templateUrl: 'app/stats/stats.view.html',
   });
@@ -26,7 +25,7 @@
         webservices.getStatsByMonth().then(function (data) {
             console.log(data);
 
-            data = JSON.stringify(data);
+            data = JSON.stringify(data)
 
             var svg = $window.d3.select("#graphique"),
                 margin = {
@@ -45,13 +44,13 @@
             var y = $window.d3.scaleLinear()
                 .rangeRound([height, 0]);
 
-                data = JSON.stringify(data);
+            $window.d3.json("http://127.0.0.1:8000/article/stats-months?dateDebut=20180101&dateFin=20190101").then(function (data) {
                 console.log(data);
                 x.domain(data.map(function (d) {
                     return d.mois;
                 }));
                 y.domain([0, $window.d3.max(data, function (d) {
-                    return Number(d.accidentsVoiture);
+                    return Number(d.nombre_accident);
                 })]);
                 g.append("g")
                     .attr("transform", "translate(0," + height + ")")
@@ -67,13 +66,14 @@
                         return x(d.mois);
                     })
                     .attr("y", function (d) {
-                        return y(Number(d.accidentsVoiture));
+                        return y(Number(d.nombre_accident));
                     })
                     .attr("width", x.bandwidth())
                     .attr("height", function (d) {
-                        return height - y(Number(d.accidentsVoiture));
+                        return height - y(Number(d.nombre_accident));
                     });
 
+            });
         }, function (err) {
             $log.error(err);
         });
