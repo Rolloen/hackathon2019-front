@@ -26,14 +26,15 @@
 
         return new Service();
 
-        function getNationalStats() {
+        function getNationalStats(dateLimit, todayDate, region) {
 
             var url = 'http://localhost:8000/article/stats-nationales';
 
             return $http.get(url, {
                 params: {
-                    'dateDebut' : '2018-01-03',
-                    'dateFin' : '2019-01-03'
+                    'dateDebut': dateLimit,
+                    'dateFin': todayDate,
+                    'region' : region
                 },
                 headers: {
                     // 'Accept': 'text/html, application/json, application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',

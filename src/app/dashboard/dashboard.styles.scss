@@ -12,4 +12,32 @@ dashboard-page {
       fill : orange;
     }
   }
+  .infos-wrapper {
+    margin-top: 50px;
+    margin-left: 25px;
+    display: inline-block;
+    vertical-align: top;
+    .date-selector {
+      display: flex;
+      margin-bottom: 20px;
+      input {
+        margin: 0 5px;
+        font-size: 1.5em;
+        font-weight: 700;
+        border: 1px solid #FF954D;
+        border-radius: 6px;
+        background-color: white;
+        text-align: center;
+        color: #FF954D;
+        flex: 1;
+        &:focus {
+          outline: 0;
+        }
+        &.selected {
+          color: white;
+          background-color: #FF954D;
+        }
+      }
+    }
+  }
 }
