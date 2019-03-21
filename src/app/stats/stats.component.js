@@ -22,6 +22,7 @@
     vm.clearAllFilter = clearAllFilter;
     vm.displayedStats = 'all';
     vm.accidentsDisplayed = 0;
+    vm.accidentsDisplayedGrave = 0;
     vm.showGraph = false;
 
     $scope.$on('DATE_CHANGED', init);
@@ -122,8 +123,10 @@
     function calculateDisplayedAccidents() {
       if (vm.displayedStats !== 'all') {
           vm.accidentsDisplayed = 0;
+          vm.accidentsDisplayedGrave = 0;
         for (var type of vm.displayedStats) {
           vm.accidentsDisplayed += vm.stats[type];
+          vm.accidentsDisplayedGrave += vm.stats[type+'Grave'];
         }
       }
     }
