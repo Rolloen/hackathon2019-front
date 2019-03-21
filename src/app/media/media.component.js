@@ -8,7 +8,7 @@
   });
 
   /** @ngInject */
-  function MediaController($log, $rootScope, $translate, SAMPLE_CONSTANT) {
+  function MediaController() {
 
   }
 
