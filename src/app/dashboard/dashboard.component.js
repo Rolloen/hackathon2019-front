@@ -72,14 +72,16 @@
           .classed("selected", centered && function (d) {
             return d === centered;
           });
-
-        $scope.$apply(vm.selectedRegion);
         
+          console.log(vm.selectedRegion);
+          
+        $scope.$apply(vm.selectedRegion);
+        initStats();
       }
 
     }
     function initStats() {
-      webservices.getNationalStats(vm.limitDate, today)
+      webservices.getNationalStats(vm.limitDate, today, vm.selectedRegion.nom)
         .then(function(data){
           vm.stats = data;
           console.log(data);

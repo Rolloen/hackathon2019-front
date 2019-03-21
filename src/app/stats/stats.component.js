@@ -6,7 +6,8 @@
     controllerAs: 'vm',
     bindings: {
       region: '=',
-      stats : '='
+      stats : '=',
+      dateLimit : '='
     },
     templateUrl: 'app/stats/stats.view.html',
   });
