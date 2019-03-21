@@ -28,7 +28,7 @@
 
         function getNationalStats(dateLimit, todayDate, region) {
 
-            var url = 'http://localhost:8080/article/stats-nationales';
+            var url = 'http://localhost:8000/article/stats-nationales';
 
             return $http.get(url, {
                 params: {
@@ -56,7 +56,7 @@
         }
         function getStatsByMonth() {
 
-            var url = 'http://localhost:8080/article/stats-months';
+            var url = 'http://localhost:8000/article/stats-months';
 
             return $http.get(url, {
                 params: {

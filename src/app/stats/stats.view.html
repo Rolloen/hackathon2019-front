@@ -75,23 +75,29 @@
 
                 <h6>dont</h6>
                 <div class="deadly-accidents">
-                    <span ng-if="vm.stats.nombre_accident_grave"> {{ vm.stats.nombre_accident_grave }} </span>
-                    <span ng-if="!vm.stats.nombre_accident_grave"> - </span>
+                    <span ng-if="vm.displayedStats === 'all'">
+                        <span ng-if="vm.stats.nombre_accident_grave"> {{ vm.stats.nombre_accident_grave }} </span>
+                        <span ng-if="!vm.stats.nombre_accident_grave"> - </span>
+                    </span>
+                    <span ng-if="vm.displayedStats !== 'all'">
+                        <span ng-if="vm.stats.accidentsDisplayedGrave"> {{ vm.stats.accidentsDisplayedGrave }} </span>
+                        <span ng-if="!vm.stats.accidentsDisplayedGrave"> - </span>
+                    </span>
                     <span>accidents graves</span>
                 </div>
             </div>
 
             <div class="filter-container">
-                <div class="filter train" ng-click="vm.changeDisplayedStats('train')">
+                <div class="filter train" ng-click="vm.changeDisplayedStats('train','trainGrave')">
                     <i class="fas fa-train"></i>
                 </div>
-                <div class="filter car" ng-click="vm.changeDisplayedStats('voiture')">
+                <div class="filter car" ng-click="vm.changeDisplayedStats('voiture','voitureGrave')">
                     <i class="fas fa-car-alt"></i> 
                 </div>
-                <div class="filter airplane" ng-click="vm.changeDisplayedStats('avion')">
+                <div class="filter airplane" ng-click="vm.changeDisplayedStats('avion','avionGrave')">
                     <i class="fas fa-plane"></i>
                 </div>
-                <div class="filter bike" ng-click="vm.changeDisplayedStats('moto')">
+                <div class="filter bike" ng-click="vm.changeDisplayedStats('moto','motoGrave')">
                     <i class="fas fa-motorcycle"></i>
                 </div>
             </div>
