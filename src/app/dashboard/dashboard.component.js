@@ -72,8 +72,6 @@
           .classed("selected", centered && function (d) {
             return d === centered;
           });
-        
-          console.log(vm.selectedRegion);
           
         $scope.$apply(vm.selectedRegion);
         initStats();
@@ -83,11 +81,7 @@
     function initStats() {
       webservices.getNationalStats(vm.limitDate, today, vm.selectedRegion.nom)
         .then(function(data){
-          vm.stats = data;
-          console.log(data);
-          
-          // $scope.$apply(vm.stats);
-          
+          vm.stats = data;          
         }, function (err) {
             $log.error(err);          
         });
@@ -100,7 +94,8 @@
     function changeSelectedDate(date, nb, typeOfDuration) {
       vm.selectedDate = date;
       vm.limitDate = getDateWithSubstract(nb, typeOfDuration);
-      initStats();     
+      initStats();
+      $scope.$broadcast('DATE_CHANGED');
     }
 
   }
