@@ -106,6 +106,7 @@
 
     function calculateDisplayedAccidents() {
       if (vm.displayedStats !== 'all') {
+          vm.accidentsDisplayed = 0;
         for (var type of vm.displayedStats) {
           vm.accidentsDisplayed += vm.stats[type];
         }
