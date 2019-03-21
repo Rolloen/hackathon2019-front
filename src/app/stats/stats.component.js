@@ -49,7 +49,7 @@
         var y = $window.d3.scaleLinear()
           .rangeRound([height, 0]);
   
-        $window.d3.json("http://localhost:8080/article/stats-months?dateDebut=" + dateDebut + "&dateFin=" + dateFin).then(function (data) {
+        $window.d3.json("http://localhost:8000/article/stats-months?dateDebut=" + dateDebut + "&dateFin=" + dateFin).then(function (data) {
           console.log(data);
           x.domain(data.map(function (d) {
             return d.mois;
@@ -67,6 +67,7 @@
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
+            .attr("fill","#FF954D")
             .attr("x", function (d) {
               return x(d.mois);
             })
