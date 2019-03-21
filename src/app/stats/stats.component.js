@@ -28,6 +28,7 @@
     init();
 
     function init(event, newDateLimit) {
+      clearAllFilter();
       if (newDateLimit && vm.showGraph) {
         
         var dateDebut = newDateLimit.replace(/-/g, '');
