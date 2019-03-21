@@ -8,16 +8,23 @@
   });
 
   /** @ngInject */
-  function DashboardController($log, $rootScope, $scope, $window, $translate, webservices) {
+  function DashboardController($log, $rootScope, $scope, $window, $translate, webservices, moment) {
     const vm = this;
 
-    vm.switchLanguage = switchLanguage;
+    vm.changeSelectedDate = changeSelectedDate;
+
     vm.selectedRegion = {};
     vm.stats = {};
+    vm.limitDate = getDateWithSubstract(1, 'weeks');
+    vm.selectedDate = "1week";
+
+    var today = moment().format('YYYY-MM-DD');
 
     activate();
 
     function activate() {
+      console.log(today);
+      
       initStats();
       var width = 1000,
         height = 1000,
@@ -72,7 +79,7 @@
 
     }
     function initStats() {
-      webservices.getNationalStats()
+      webservices.getNationalStats(vm.limitDate, today)
         .then(function(data){
           vm.stats = data;
           console.log(data);
@@ -84,8 +91,14 @@
         });
     }
 
-    function switchLanguage(language) {
-      $translate.use(language);
+    function getDateWithSubstract(nb, typeOfDuration) {
+      return moment().subtract(nb, typeOfDuration).format('YYYY-MM-DD');
+    }
+
+    function changeSelectedDate(date, nb, typeOfDuration) {
+      vm.selectedDate = date;
+      vm.limitDate = getDateWithSubstract(nb, typeOfDuration);
+      initStats();     
     }
 
   }
