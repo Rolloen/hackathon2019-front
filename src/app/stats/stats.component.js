@@ -69,6 +69,7 @@
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
+            .attr("fill","#FF954D")
             .attr("x", function (d) {
               return x(d.mois);
             })
