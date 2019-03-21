@@ -4,9 +4,9 @@ stats {
   .stats-container {
     .card {
       padding: 10px 8px 10px 8px;
-
       margin-bottom: 15px;
       background-color: #F4F4F4;
+      flex: 1;
       h3 {
         color: black;
         .title {
@@ -35,6 +35,12 @@ stats {
         color: #FF954D;
       }
     }
+
+    .double-card {
+      display: flex;
+      justify-content: space-around;
+    }
+    
 
     .date-card {
       margin-right: 10px;
@@ -84,6 +90,13 @@ stats {
         }
 
       }
+    }
+
+    .show-graph-btn {
+      width: 100%;
+      font-size: 1.3em;
+      color: #FF954D;
+      text-align: center;
     }
   }
 }

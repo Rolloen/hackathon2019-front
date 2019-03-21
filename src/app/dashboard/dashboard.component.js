@@ -95,7 +95,7 @@
       vm.selectedDate = date;
       vm.limitDate = getDateWithSubstract(nb, typeOfDuration);
       initStats();
-      $scope.$broadcast('DATE_CHANGED');
+      $scope.$broadcast('DATE_CHANGED', vm.limitDate);
     }
 
   }

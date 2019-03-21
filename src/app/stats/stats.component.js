@@ -20,17 +20,16 @@
     vm.changeShowGraph = changeShowGraph;
     vm.displayedStats = 'all';
     vm.accidentsDisplayed = 0;
-    vm.showGraph = true;
+    vm.showGraph = false;
 
     $scope.$on('DATE_CHANGED', init);
     init();
 
-    function init() {
-      if (vm.dateLimit && vm.showGraph) {
-        var dateDebut = vm.dateLimit.replace(/-/g, '');
+    function init(event, newDateLimit) {
+      if (newDateLimit && vm.showGraph) {
+        
+        var dateDebut = newDateLimit.replace(/-/g, '');
         var dateFin = moment().format('YYYY-MM-DD').replace(/-/g, '');
-        console.log(dateDebut);
-        console.log(dateFin);
         $window.d3.select("#graphique").html("");
 
         var svg = $window.d3.select("#graphique"),
@@ -87,7 +86,6 @@
     }
 
     function changeDisplayedStats(type) {
-      console.log(vm.stats);
       if (type === 'all') {
         vm.displayedStats = type;
       } else if (vm.displayedStats === 'all') {
@@ -102,6 +100,9 @@
 
     function changeShowGraph() {
       vm.showGraph = !vm.showGraph;
+      if (vm.showGraph) {
+        init(null, vm.dateLimit);
+      }
     }
 
     function calculateDisplayedAccidents() {

@@ -17,6 +17,12 @@ dashboard-page {
     margin-left: 25px;
     display: inline-block;
     vertical-align: top;
+     @media screen and (max-width: 1600px) {
+       width: 100%;
+     }
+      @media screen and (min-width: 1601px) {
+       width: 40%;
+     }
     .date-selector {
       display: flex;
       margin-bottom: 20px;
