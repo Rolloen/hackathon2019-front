@@ -18,6 +18,8 @@
 
     vm.changeDisplayedStats = changeDisplayedStats;
     vm.changeShowGraph = changeShowGraph;
+    vm.isActivatedFilter = isActivatedFilter;
+    vm.clearAllFilter = clearAllFilter;
     vm.displayedStats = 'all';
     vm.accidentsDisplayed = 0;
     vm.showGraph = false;
@@ -91,8 +93,18 @@
       } else if (vm.displayedStats === 'all') {
         vm.displayedStats = [];
         vm.displayedStats.push(type);
-      } else if (Array.isArray(vm.displayedStats) && !vm.displayedStats.includes(type)) {
-        vm.displayedStats.push(type);
+      } else if (Array.isArray(vm.displayedStats)) {
+        if (vm.displayedStats.includes(type)) {
+          var index = vm.displayedStats.indexOf(type);
+          vm.displayedStats.splice(index, 1);
+          if (vm.displayedStats.length <= 0) {
+            console.log('no stats');
+            
+            vm.displayedStats = 'all';
+          }
+        } else {
+          vm.displayedStats.push(type);
+        }
       }
 
       calculateDisplayedAccidents();
@@ -112,6 +124,20 @@
           vm.accidentsDisplayed += vm.stats[type];
         }
       }
+    }
+
+    function isActivatedFilter(filter) {
+      console.log();
+      
+      if (Array.isArray(vm.displayedStats)) {
+        return vm.displayedStats.includes(filter);
+      } else {
+        return false;
+      }
+    }
+
+    function clearAllFilter() {
+      vm.displayedStats = 'all';
     }
 
   }

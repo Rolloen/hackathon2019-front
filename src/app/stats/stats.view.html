@@ -70,7 +70,8 @@
                         <span ng-if="!vm.accidentsDisplayed"> - </span>
                     </span>
 
-                    <span>accidents médiatisés</span>
+                    <span ng-if="vm.displayedStats === 'all'">accidents médiatisés</span>
+                    <span ng-if="vm.displayedStats !== 'all'">articles</span>
                 </div>
 
                 <h6>dont</h6>
@@ -82,26 +83,31 @@
             </div>
 
             <div class="filter-container">
-                <div class="filter train" ng-click="vm.changeDisplayedStats('train')">
-                    <i class="fas fa-train"></i>
+                <div class="filter-wrap">
+                    <div class="filter train" ng-click="vm.changeDisplayedStats('train')" ng-class="{ selected : vm.isActivatedFilter('train')}">
+                        <i class="fas fa-train"></i>
+                    </div>
+                    <div class="filter car" ng-click="vm.changeDisplayedStats('voiture')" ng-class="{ selected : vm.isActivatedFilter('voiture')}">
+                        <i class="fas fa-car-alt"></i> 
+                    </div>
+                    <div class="filter airplane" ng-click="vm.changeDisplayedStats('avion')" ng-class="{ selected : vm.isActivatedFilter('avion')}">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <div class="filter bike" ng-click="vm.changeDisplayedStats('moto')" ng-class="{ selected : vm.isActivatedFilter('moto')}">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
                 </div>
-                <div class="filter car" ng-click="vm.changeDisplayedStats('voiture')">
-                    <i class="fas fa-car-alt"></i> 
-                </div>
-                <div class="filter airplane" ng-click="vm.changeDisplayedStats('avion')">
-                    <i class="fas fa-plane"></i>
-                </div>
-                <div class="filter bike" ng-click="vm.changeDisplayedStats('moto')">
-                    <i class="fas fa-motorcycle"></i>
-                </div>
+                <div class="reset" ng-click="vm.clearAllFilter()">Réinitialiser</div>
             </div>
         </div>
     </div>
     
     <div class="row">
         <div class="show-graph-btn" ng-click="vm.changeShowGraph()">
-            <div>Afficher plus</div>
-            <i class="fas fa-chevron-circle-down"></i>
+            <div ng-if="!vm.showGraph">Afficher plus</div>
+            <i class="fas fa-chevron-circle-down" ng-if="!vm.showGraph"></i>
+            <div ng-if="vm.showGraph">Afficher moins</div>
+            <i class="fas fa-chevron-circle-up" ng-if="vm.showGraph"></i>
         </div>
         <div class="card graph-card col-xs-12" ng-show="vm.showGraph">
             <h3>
