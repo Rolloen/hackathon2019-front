@@ -90,6 +90,33 @@ stats {
         }
 
       }
+
+      .filter-container {
+        position: absolute;
+        right: 0;
+        .filter-wrap {
+          width: 230px;
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: space-around;
+          .filter {
+            width: 50px;
+            font-size: 2em;
+            text-align: center;
+            border: 1px solid grey;
+            &.selected {
+              background-color: grey;
+            }
+          }
+        }
+
+        .reset {
+          text-align: center;
+          font-size: 1em;
+          text-align: center;
+          border: 1px solid grey;
+        }
+      }
     }
 
     .show-graph-btn {
