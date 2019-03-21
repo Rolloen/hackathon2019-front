@@ -24,8 +24,6 @@
                     <span>Popularité moyenne</span>
                     <span class="underbar"></span>
                 </div>
-                
-
             </h3>
 
             <div class="text">
@@ -71,13 +69,12 @@
 
                 <h6>dont</h6>
                 <div class="deadly-accidents">
-                    <span> 15 </span> 
+                    <span ng-if="vm.stats.nombre_accident_grave"> {{ vm.stats.nombre_accident_grave }} </span>
+                    <span ng-if="!vm.stats.nombre_accident_grave"> - </span>
                     <span>accidents graves</span>
                 </div>
             </div>
-            <!-- <div class="text graphique">
 
-            </div>     -->
         </div>
     </div>
 

@@ -75,6 +75,8 @@
       webservices.getNationalStats()
         .then(function(data){
           vm.stats = data;
+          console.log(data);
+          
           // $scope.$apply(vm.stats);
           
         }, function (err) {
