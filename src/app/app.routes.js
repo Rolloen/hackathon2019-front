@@ -18,6 +18,7 @@
     $stateProvider.state('dashboard', {
       url: '/dashboard',
       component: 'dashboardPage',
+      requiresLogin: true,
     });
 
     $stateProvider.state('faq', {

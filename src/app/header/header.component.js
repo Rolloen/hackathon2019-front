@@ -8,9 +8,39 @@
   });
 
   /** @ngInject */
-  function HeaderController() {
+  function HeaderController($rootScope, $window, $state) {
     const vm = this;
 
+    vm.openLoginModal = openLoginModal;
+    vm.isConnected = isConnected;
+    vm.logout = logout;
+
+    vm.userInfo = {};
+
+    init();
+
+    function init() {
+      var userData = $window.localStorage.getItem('userData');
+      if (userData && userData !== 'null') {
+        vm.userInfo = JSON.parse(userData);
+        console.log(vm.userInfo);
+        
+      }
+    }
+
+    function isConnected() {
+      var userData = $window.localStorage.getItem('userData');
+      return userData;
+    }
+
+    function openLoginModal() {
+      $rootScope.$broadcast('OPEN_LOGIN');
+    }
+
+    function logout() {
+      $window.localStorage.setItem('userData', null);
+      $state.go('home');
+    }
   }
 
 })();

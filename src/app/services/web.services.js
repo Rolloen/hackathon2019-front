@@ -21,7 +21,8 @@
 
         Service.prototype = {
             getNationalStats: getNationalStats,
-            getStatsByMonth: getStatsByMonth
+            getUser: getUser
+            // getStatsByMonth: getStatsByMonth
         };
 
         return new Service();
@@ -54,32 +55,60 @@
                 $log.debug('XHR Failed for getNationalStats.' + error.data);
             }
         }
-        function getStatsByMonth() {
 
-            var url = 'http://localhost:8000/article/stats-months';
+        function getUser(email, cryptedPassword) {
+
+            var url = 'http://localhost:8000/user/get-user';
 
             return $http.get(url, {
                 params: {
-                    'dateDebut' : '2018-01-03',
-                    'dateFin' : '2019-01-03'
+                    'mail': email,
+                    'password': cryptedPassword
                 },
                 headers: {
-                    // 'Accept': 'text/html, application/json, application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                    // 'Access-Control-Allow-Origin' : "*",
                     'Content-Type': 'application/json'
                 }
             })
-                .then(getStatsByMonthComplete)
-                .catch(getStatsByMonthFailed);
+                .then(getUserComplete)
+                .catch(getUserFailed);
 
-            function getStatsByMonthComplete(response) {
+            function getUserComplete(response) {
                 return response.data;
                 // UsersStorageService.setUser(response.data);
             }
 
-            function getStatsByMonthFailed() {
-                $log.debug('XHR Failed for getNationalStats.' + error.data);
+            function getUserFailed() {
+                $log.debug('XHR Failed for getUser.' + error.data);
             }
         }
+
+
+        // function getStatsByMonth() {
+
+        //     var url = 'http://localhost:8000/article/stats-months';
+
+        //     return $http.get(url, {
+        //         params: {
+        //             'dateDebut' : '2018-01-03',
+        //             'dateFin' : '2019-01-03'
+        //         },
+        //         headers: {
+        //             // 'Accept': 'text/html, application/json, application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        //             // 'Access-Control-Allow-Origin' : "*",
+        //             'Content-Type': 'application/json'
+        //         }
+        //     })
+        //         .then(getStatsByMonthComplete)
+        //         .catch(getStatsByMonthFailed);
+
+        //     function getStatsByMonthComplete(response) {
+        //         return response.data;
+        //         // UsersStorageService.setUser(response.data);
+        //     }
+
+        //     function getStatsByMonthFailed() {
+        //         $log.debug('XHR Failed for getNationalStats.' + error.data);
+        //     }
+        // }
     }
 })();

@@ -5,7 +5,9 @@
     'pascalprecht.translate',
     'tmh.dynamicLocale',
     'ui.router',
-    'angularMoment'
+    'angularMoment',
+    'angular-md5',
+    'ui.router.state.events'
   ]);
 
 })();
